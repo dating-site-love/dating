@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Progress Status</title>
+<style>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: url('background.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    width: 100%;
+    background: #eee;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    display: none;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #ff4d6d;
+    transition: width 0.3s;
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #ff4d6d;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.result-text {
+    margin-top: 20px;
+    font-size: 14px;
+    display: none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Check Current Progress Percentage</h2>
+
+    <div class="loader" id="loader"></div>
+
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="result-text" id="resultText">
+        <p><strong>Process is not completed.</strong></p>
+        <p>Contact the woman if you want to receive updated information about the result.</p>
+    </div>
+</div>
+
+<script>
+
+let progress = 0;
+let target = 60; // ← Можешь менять процент здесь
+
+setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("progressContainer").style.display = "block";
+
+    let interval = setInterval(() => {
+        if (progress >= target) {
+            clearInterval(interval);
+            document.getElementById("resultText").style.display = "block";
+        } else {
+            progress++;
+            document.getElementById("progressBar").style.width = progress + "%";
+        }
+    }, 40);
+
+}, 2500); // время имитации загрузки
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    background:url('bg.jpg') no-repeat center center;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+}
+
+.form-box{
+    position:relative;
+    z-index:2;
+    width:420px;
+    background:white;
+    padding:50px 40px;
+    border-radius:20px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.35);
+    text-align:center;
+}
+
+h2{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:14px;
+    color:#333;
+    line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h2>Thank You</h2>
+
+    <p>
+        Thank you for choosing us. <br><br>
+        We are confident that your love is exactly where you are looking for it. <br><br>
+        Please wait.
+    </p>
+
+</div>
+
+</body>
+</html>

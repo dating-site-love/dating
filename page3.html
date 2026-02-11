@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress Status</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    background:url('bg.jpg') no-repeat center center;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+}
+
+.form-box{
+    position:relative;
+    z-index:2;
+    width:420px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.35);
+    text-align:center;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+.loader{
+    border:6px solid #f3f3f3;
+    border-top:6px solid #4f6df5;
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    animation:spin 1s linear infinite;
+    margin:20px auto;
+}
+
+@keyframes spin{
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(360deg); }
+}
+
+.progress-container{
+    width:100%;
+    height:18px;
+    background:#eee;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:20px;
+    display:none;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#4f6df5,#5d7bff);
+    transition:width 0.3s;
+}
+
+.result-text{
+    margin-top:20px;
+    font-size:14px;
+    display:none;
+    color:#333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h2>Checking current progress...</h2>
+
+    <div class="loader" id="loader"></div>
+
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="result-text" id="resultText">
+        <strong>Process is not completed.</strong><br><br>
+        Contact the woman if you want to receive updated information about the result.
+    </div>
+
+</div>
+
+<script>
+
+let progress = 0;
+let target = 60; // 🔥 МЕНЯЙ ПРОЦЕНТ ЗДЕСЬ
+
+// Показываем прогресс после имитации загрузки
+setTimeout(() => {
+
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("progressContainer").style.display = "block";
+
+    let interval = setInterval(() => {
+
+        if(progress >= target){
+            clearInterval(interval);
+            document.getElementById("resultText").style.display = "block";
+        } else {
+            progress++;
+            document.getElementById("progressBar").style.width = progress + "%";
+        }
+
+    }, 30);
+
+}, 2500); // 2.5 секунды "проверки"
+
+
+// 🔥 АВТО РЕДИРЕКТ ЧЕРЕЗ 30 СЕКУНД
+setTimeout(function(){
+    window.location.href = "page4.html";
+}, 30000); // 30000 = 30 секунд
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status Update</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    background:url('bg.jpg') no-repeat center center;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+}
+
+.form-box{
+    position:relative;
+    z-index:2;
+    width:420px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.35);
+    text-align:center;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+p{
+    font-size:14px;
+    margin-bottom:25px;
+    color:#333;
+    line-height:1.6;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:none;
+    background:linear-gradient(90deg,#4f6df5,#5d7bff);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    font-weight:500;
+}
+
+button:hover{
+    opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h2>Status Update</h2>
+
+    <p>
+        The process is not completed.<br><br>
+        Please contact the woman if you would like to receive updated information about the result.
+    </p>
+
+    <button onclick="goNext()">Continue</button>
+
+</div>
+
+<script>
+function goNext(){
+    window.location.href = "page5.html";
+}
+</script>
+
+</body>
+</html>
